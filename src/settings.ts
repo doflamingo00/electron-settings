@@ -7,6 +7,7 @@ import _get from 'lodash.get';
 import _has from 'lodash.has';
 import _set from 'lodash.set';
 import _unset from 'lodash.unset';
+import * as remote from '@electron/remote';
 
 /**
  * At the basic level, a key path is the string equivalent
@@ -166,7 +167,7 @@ function getElectron(): typeof Electron {
  */
 function getElectronApp(): Electron.App {
   const e = getElectron();
-  const app = e.app ?? e.remote.app;
+  const app = e.app ?? remote.app;
 
   return app;
 }
